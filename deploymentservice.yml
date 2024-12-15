@@ -19,3 +19,16 @@ spec:
         image: vikramsharma1992/medicure:1
         ports:
         - containerPort: 80
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: medicure-project
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      nodeport: 30000
+  selector:
+    app: medicure-project
